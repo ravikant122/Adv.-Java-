@@ -1,0 +1,39 @@
+1. why we have to write test - why manual testing doesn't work
+manual testing will work for now but when in future when the fuctionality gets modified the we again have to do the manual testing
+in test cases, we just run the already written test-cases
+
+2. why we need a testing framework
+in testing, we do certain things
+a. create functinality to test
+b. prepare test inputs
+c. run test
+d. compare the test result with expected
+e. show error if test gets failed
+
+c, d, e - these will be same for all type of tests and functionality, so they should be done someone other than dev
+that's where we need a framerwork
+
+3. JUnit framework 3 things 
+a. platform - it run the tests
+b. Jupiter - provides api which we call to test and show error message
+c. vintage - to run test cases written in older junit version
+
+4. we need to use @Test annotation on the method in our test class
+
+5. don't create test in order like test2 should run if test1 gets success or after test1 because tests should be
+independent of each other so that each functionality can be tested separately
+create separate test for each functinality so that they can be decoupled to each other
+
+6. junit provide some lifecycle methods that we can use
+init() - gets run before anything
+beforeAll - before all test
+afterAll - after all test
+beforeEach - before each test
+afterEach - after each test
+
+7. for each test, junit creates new instance of test class
+
+8. we can choose display name for a method, if we don't want to see method name - @displayName("ASdf")
+9. we can disable a test using @disabled
+
+10. assertAll -  test no of test's in single statement
