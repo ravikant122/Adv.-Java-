@@ -1,0 +1,33 @@
+What is Dependency injection 
+	spring is gonna create the object and provide it to class whose gonna use it, this serves this purpose
+	1. decoupling - the class which gonna use it will never have to create the object means its just gonna take some object
+		and perform some functionality of that object
+		in this manner, the class will be independent of the object(there will be no relation between class and object)
+		in this way we don't have to modify this class based on diff objects
+		
+	now we need to create object outside the class but yeah we need to create the object and spring does that for us
+	and spring handles all the lifecycle of the object
+	
+What is Bean - its nothing but object
+	we generally have a xml file in which we've classes and their name/id, we can use these ids to create objects
+	Bean factory is the one which is gonna create objects and maintain them throughtout their lifecycle
+	Spring uses Factory pattern for Bean factory - nothing but a factory which manufactures objects
+	
+Bean scope
+	1. Singleton - Beans are by default singleton, means beans with same id, they are gonna be created only one time and
+		next time we call that bean, it will return the same bean/object
+		these beans will be initialized when our program starts, before anything
+	2. prototype - new bean will be created every time when use try to getBean
+		these beans will be created as use call getBean
+		
+lifecycle hooks
+	1. init method - we need InitializingBean interface to implement
+	2. destroy method - we need DisposableBean interface to implement - for this we need to change
+	ApplicationContext with AbstractApplicationContext and call context.registerShutDownHook()
+	
+	we can also create our own init and destroy method in the class and use those method in bean property
+	init-method="init" , destroy-method="destroy"
+	
+Which is better dependency injection(using Autowired) - on member variable or on setter
+	creating bean using setter is much more good because we can do more things in setter like validation, logging etc.
+	and its also useful when we do testing

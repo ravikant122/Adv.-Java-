@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	<context:annotation-config/>
+	
+	<bean id="triangle" class="app.drawing.BasicClass">
+		 <!-- think of property tag as initial value or default value 
+			property tag will call set method of the mentioned property(in name) -->
+		<property name="type" value="Equilateral"></property>
+	</bean>
+	
+	<bean id="constructInit" class="app.drawing.ConstructorInitialization">
+		 <!-- it automatically converts the type, if we pass string and property is of type then 
+			it will type cast 
+		 when using constructor to init properties, we've to deal with constructor overloading
+			we can mention type so that it goes to the costructor that we want -->
+		<constructor-arg type="java.lang.String" value="Equilateral" />
+		<constructor-arg type="int" value="20" />
+		 <!-- if we don't mention type then it will convert 20 to int -->
+	</bean>
+	
+	<bean id="objectInjecting" class="app.drawing.InjectingObjects" init-method="init" destroy-method="cleanup">
+		<property name="pointA" ref="zeroPoint"></property>
+		 <!-- inner bean -->
+		<property name="pointB">
+			<bean class="app.drawing.Point">  <!-- no need to give id on inner beans -->
+				<property name="x" value="20"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
+		<property name="pointC">
+			<bean class="app.drawing.Point">
+				<property name="x" value="0"></property>
+				<property name="y" value="20"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="zeroPoint" name="pointA" class="app.drawing.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<bean id="pointB" class="app.drawing.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="20"></property>
+	</bean>
+	<bean id="pointC" class="app.drawing.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<bean id="autoWiring" class="app.drawing.AutoWiring" autowire="byName">
+		 <!-- when autowire is byName then it will look for property name(or id) of autoWiring class
+		it will look name or id of pointA, pointB, pointC and automatically inject them in autowiring class -->
+	</bean>
+	
+	<bean id="parentObject" class="app.drawing.InjectingObjects">
+		<property name="pointA" ref="zeroPoint"></property>
+	</bean>
+	
+	<bean id="childObject" class="app.drawing.InjectingObjects" parent="parentObject">
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+
+	<bean id="center" class="app.drawing.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	
+	<!-- for the scan of beans which are in class form (means have annotations like Component, service etc.-->
+	<context:component-scan base-package="app.drawing"></context:component-scan>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+</beans>
