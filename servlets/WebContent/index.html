@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- this is the static page -->
+	HELLO WORLD 
+	<br>
+	<!-- when we do dynamic stuffs on the client side - we use javaScript -->
+	<!-- when we do dyanmic stuffs on the server side - we use servlets -->
+	
+	first servlet
+	<!-- add two no -->
+	<form action="add">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	<!-- it will go to the request class add but it will find it -->
+	<!-- we've to provide that class in which it will be looking for add request -->
+	<!-- that we will do in web.xml bcoz this file is our deployment descriptor -->
+	<!-- after finding request class it will generate a dynamic page named (thatJavaFileName.html) -->
+	
+	
+	add using method sevlet
+	<form action="addUsingMethod" method="post">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	call servlet from another servlet
+	<form action="callServletFromServlet">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	sendRedirect
+	<form action="sendRedirect">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	session
+	<form action="session">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	cookie
+	<form action="cookie">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	Servlet context and config
+	<form action="contextAndConfig">
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	Annotation
+	<form action="annot"> <!-- this request will directly to the class not through web.xml -->
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	first JSP
+	<form action="basicJsp.jsp"> <!-- this request will directly to the class not through web.xml -->
+		Enter 1st no : <input type="text" name="num1"><br>
+		Enter 2nd no : <input type="text" name="num2"><br>
+		<input type="submit">
+	</form>
+	
+	first filter
+	<form action="filtering"> <!-- this request will directly to the class not through web.xml -->
+		Enter 1st no : <input type="text" name="id"><br>
+		Enter 2nd no : <input type="text" name="name"><br>
+		<input type="submit">
+	</form>
+	
+</body>
+</html>

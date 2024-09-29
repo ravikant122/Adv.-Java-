@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>JSPandServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- we can have more than one servlet and for every servlet we gotta do add this -->
+  
+  <!-- basicServlet just add two no -->
+  <servlet>
+  	<servlet-name>abc</servlet-name>
+  	<servlet-class>com.servlet.BasicServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>abc</servlet-name>
+  	<url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  
+  <!-- servlet using do post and get -->
+  <servlet>
+  	<servlet-name>pqr</servlet-name>
+  	<servlet-class>com.servlet.DoPostAndDoGet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>pqr</servlet-name>
+  	<url-pattern>/addUsingMethod</url-pattern>
+  </servlet-mapping>
+  
+  <!-- servlet from another servlet -->
+  <servlet>
+  	<servlet-name>gaer</servlet-name>
+  	<servlet-class>com.servlet.CallingServletFromServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>gaer</servlet-name>
+  	<url-pattern>/callServletFromServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- another servlet -->
+  <servlet>
+  	<servlet-name>adfaf</servlet-name>
+  	<servlet-class>com.servlet.SqServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>adfaf</servlet-name>
+  	<url-pattern>/sq</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>nkjnk</servlet-name>
+  	<servlet-class>com.servlet.SendRedirect</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>nkjnk</servlet-name>
+  	<url-pattern>/sendRedirect</url-pattern>
+  </servlet-mapping>
+  
+  <!-- another servlet -->
+  <servlet>
+  	<servlet-name>lkml</servlet-name>
+  	<servlet-class>com.servlet.SqServlet2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>lkml</servlet-name>
+  	<url-pattern>/sq2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>mkml</servlet-name>
+  	<servlet-class>com.servlet.Session</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>mkml</servlet-name>
+  	<url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  
+  <!-- another servlet -->
+  <servlet>
+  	<servlet-name>rtee</servlet-name>
+  	<servlet-class>com.servlet.SqServlet3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>rtee</servlet-name>
+  	<url-pattern>/sq3</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>erwq</servlet-name>
+  	<servlet-class>com.servlet.Cookies</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>erwq</servlet-name>
+  	<url-pattern>/cookie</url-pattern>
+  </servlet-mapping>
+  
+  <!-- another servlet -->
+  <servlet>
+  	<servlet-name>oijio</servlet-name>
+  	<servlet-class>com.servlet.SqServlet4</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>oijio</servlet-name>
+  	<url-pattern>/sq4</url-pattern>
+  </servlet-mapping>
+
+  <!-- servlet config and context - these params will be shared by all servlets -->
+  <context-param>
+  	<param-name>name</param-name>
+  	<param-value>ravi</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>phone</param-name>
+  	<param-value>mi</param-value>
+  </context-param>
+
+  <servlet>
+  	<servlet-name>mlsafdlks</servlet-name>
+  	<servlet-class>com.servlet.ServletContextAndConfig</servlet-class>
+  	
+  	<init-param>
+  		<param-name>name</param-name>
+	  	<param-value>Rknn</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>mlsafdlks</servlet-name>
+  	<url-pattern>/contextAndConfig</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
